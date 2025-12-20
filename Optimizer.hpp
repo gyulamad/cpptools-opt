@@ -1,14 +1,9 @@
 #pragma once
 
-#include <vector>
-#include <functional>
-#include <map>
 #include "../misc/Initializable.hpp"
-#include "../misc/Values.hpp"
-#include "OptimizedResult.hpp"
-#include "ObjectiveParameters.hpp"
-#include "OptimizerObjective.hpp"
 #include "OptimizerDirection.hpp"
+#include "OptimizedResult.hpp"
+#include "OptimizerObjective.hpp"
 
 using namespace std;
 

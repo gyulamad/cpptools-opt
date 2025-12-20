@@ -1,8 +1,7 @@
 #pragma once
 
-#include <functional>
-#include "../misc/Values.hpp"
 #include "OptimizerDirection.hpp"
+#include "../misc/Values.hpp"
 
 using namespace std;
 
