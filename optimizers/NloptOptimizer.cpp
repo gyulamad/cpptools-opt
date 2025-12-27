@@ -1,3 +1,5 @@
+// For initialization values (.ini file) see NloptOptimizer.md
+
 // DEPENDENCY: stevengj/nlopt:v2.10.1
 
 #include <math.h>                                      // for INFINITY, NAN
