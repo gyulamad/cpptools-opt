@@ -1,13 +1,13 @@
 // For initialization values (.ini file) see NloptOptimizer.md
 
 // DEPENDENCY: stevengj/nlopt:v2.10.1
+#include <nlopt.hpp>
 
 #include <math.h>                                      // for INFINITY, NAN
 #include <exception>                                   // for exception
 #include <functional>                                  // for function
 #include <iostream>                                    // for basic_ostream
 #include <map>                                         // for map
-#include <nlopt.hpp>                                   // for opt, result
 #include <string>                                      // for char_traits
 #include <vector>                                      // for vector
 #include "../../misc/ERROR.hpp"                                // for ERROR
