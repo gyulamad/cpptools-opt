@@ -12,6 +12,6 @@ public:
     OptimizerObjective() {}
     virtual ~OptimizerObjective() {}
 
-    virtual void init(void*, OptimizerDirection) = 0;
+    virtual void init(void*, void* = nullptr, OptimizerDirection = MAX) = 0;
     virtual float call(const Values&) = 0;
 };

@@ -11,13 +11,11 @@ public:
     OptimizedResult(
         const string& stop_reson,
         const ObjectiveParameters& best_params,
-        float best_result,
-        void* data = nullptr
+        float best_result
     ):
         stop_reson(stop_reson),
         best_params(best_params),
-        best_result(best_result),
-        data(data)
+        best_result(best_result)
     {}
 
     virtual ~OptimizedResult() {}
@@ -25,5 +23,4 @@ public:
     const string stop_reson;
     const ObjectiveParameters best_params;
     const float best_result;
-    const void* data = nullptr;
 };

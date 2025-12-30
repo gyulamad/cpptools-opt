@@ -44,8 +44,7 @@ public:
 
     virtual OptimizedResult optimize(
         OptimizerObjective* objective, 
-        const ObjectiveParameters& iguess,
-        void* data = nullptr
+        const ObjectiveParameters& iguess
     ) = 0;
 
 protected:

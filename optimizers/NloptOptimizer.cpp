@@ -43,8 +43,7 @@ public:
 
     virtual OptimizedResult optimize(
         OptimizerObjective* objective, 
-        const ObjectiveParameters& iguess,
-        void* data = nullptr
+        const ObjectiveParameters& iguess
     ) override {
         SAFE(objective);
 
@@ -146,8 +145,7 @@ public:
             OptimizedResult optimal(
                 stop_reason,
                 best_params,
-                best_result,
-                data
+                best_result
             );
             return optimal; // return a full result object: { bool best_result; ParameterSet best_params; enum? stop_reson; }
     
