@@ -9,6 +9,8 @@
 
 using namespace std;
 
+#define EXTERN_OPTIMIZER(clazz) EXTERN_INITIALIZABLE(clazz)
+
 class Optimizer: public Initializable {
 public:
     // enum Direction { MIN, MAX };
@@ -18,12 +20,25 @@ public:
     // };
 
     // TODO: add initializer to the shared libs
-    bool throwsOnError = true;
-    Optimizer() {}
-    virtual ~Optimizer() {}
-
-    void init(const string& inifname, bool createIfNotExists, bool throwsIfNotExists) override {
-        Initializable::init(inifname, createIfNotExists, throwsIfNotExists);
+    // bool throwsOnError = true;
+    Optimizer(
+        const string& inifname, 
+        bool load, // = false, 
+        bool createIfNotExists,
+        bool throwsIfNotExists,
+        bool warnsIfNotExists,
+        bool verbose
+    ):
+        Initializable(
+            inifname,
+            load,
+            createIfNotExists,
+            throwsIfNotExists,
+            warnsIfNotExists,
+            verbose
+        )
+    {
+        // Initializable::init(inifname, createIfNotExists, throwsIfNotExists);
         const string direction = inifile.get<string>("direction");
         if (!array_key_exists(direction, OPTIMIZER_DIRECTION_MAP)) {
             throw ERROR(
@@ -35,6 +50,8 @@ public:
         this->direction = OPTIMIZER_DIRECTION_MAP.at(direction);
     }
 
+    virtual ~Optimizer() {}
+    
     void reset(const IniData* inidata = nullptr) override {
         Initializable::reset(inidata);
         this->direction = OPTIMIZER_DIRECTION_MAP.at(inifile.get<string>("direction"));

@@ -11,7 +11,6 @@
 #include <string>                                      // for char_traits
 #include <vector>                                      // for vector
 #include "../../misc/ERROR.hpp"                                // for ERROR
-#include "../../misc/EXTERN.hpp"                               // for EXTERN
 #include "../../misc/array_dump.hpp"                           // for array_dump
 #include "../../misc/vector_cast.hpp"                          // for vector_cast
 #include "../../misc/Values.hpp"
@@ -24,7 +23,22 @@ using namespace std;
 
 class NloptOptimizer: public Optimizer {
 public:
-    NloptOptimizer(): Optimizer() {}
+    NloptOptimizer(
+        const string& inifname, 
+        bool load, // = false, 
+        bool createIfNotExists,
+        bool throwsIfNotExists,
+        bool warnsIfNotExists,
+        bool verbose
+    ): Optimizer(
+        inifname,
+        load,
+        createIfNotExists,
+        throwsIfNotExists,
+        warnsIfNotExists,
+        verbose
+    ) {}
+
     virtual ~NloptOptimizer() {}
 
 
@@ -200,6 +214,7 @@ public:
     };
 
 private:
+    bool throwsOnError = true;
     bool initialized = false;
 
     // for nlopt
@@ -216,4 +231,4 @@ private:
     ObjectiveParameters best_params;
 };
 
-EXTERN(NloptOptimizer, (), ())
+EXTERN_OPTIMIZER(NloptOptimizer)
