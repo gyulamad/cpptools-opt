@@ -5,15 +5,12 @@
 
 #include <math.h>                                      // for INFINITY, NAN
 #include <exception>                                   // for exception
-#include <functional>                                  // for function
 #include <iostream>                                    // for basic_ostream
-#include <map>                                         // for map
 #include <string>                                      // for char_traits
 #include <vector>                                      // for vector
 #include "../../misc/ERROR.hpp"                                // for ERROR
 #include "../../misc/array_dump.hpp"                           // for array_dump
 #include "../../misc/vector_cast.hpp"                          // for vector_cast
-#include "../../misc/Values.hpp"
 #include "../../misc/vector_cast.hpp"
 #include "../OptimizerObjective.hpp"
 #include "../ObjectiveParameters.hpp"
@@ -42,11 +39,11 @@ public:
     virtual ~NloptOptimizer() {}
 
 
-    virtual void onLoad() {
+    virtual void onLoad() override {
         // TODO ...
     }
 
-    virtual void onReload() {
+    virtual void onReload() override {
         this->algo = inifile.get<string>("algo");
         this->relativeToleranceX = inifile.get<double>("relativeToleranceX");
         this->relativeToleranceF = inifile.get<double>("relativeToleranceF");
