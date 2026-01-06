@@ -25,7 +25,7 @@ class NloptOptimizer: public Optimizer {
 public:
     NloptOptimizer(
         const string& inifname, 
-        bool load, // = false, 
+        bool load,
         bool createIfNotExists,
         bool throwsIfNotExists,
         bool warnsIfNotExists,

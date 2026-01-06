@@ -13,17 +13,9 @@ using namespace std;
 
 class Optimizer: public Initializable {
 public:
-    // enum Direction { MIN, MAX };
-    // const map<string, Direction> DIRECTION_MAP = {
-    //     { "MIN", MIN },
-    //     { "MAX", MAX },
-    // };
-
-    // TODO: add initializer to the shared libs
-    // bool throwsOnError = true;
     Optimizer(
         const string& inifname, 
-        bool load, // = false, 
+        bool load,
         bool createIfNotExists,
         bool throwsIfNotExists,
         bool warnsIfNotExists,
